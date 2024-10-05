@@ -28,4 +28,15 @@ describe('StringCalculatorService', () => {
     const result = service.add('1\n2,3');
     expect(result).toBe(6);
   });
+
+  it('should support custom ; delimiters', () => {
+    const result = service.add('//;\n1;2');
+    expect(result).toBe(3);
+  });
+  
+  it('should support custom , delimiters', () => {
+    const result = service.add('//,\n1,2');
+    expect(result).toBe(3);
+  });
+
 });
