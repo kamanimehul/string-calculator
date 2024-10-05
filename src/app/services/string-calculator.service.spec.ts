@@ -47,4 +47,8 @@ describe('StringCalculatorService', () => {
     expect(() => service.add('1,-2,-3')).toThrowError('Negatives not allowed: -2,-3');
   });
 
+  it('should throw an exception for not valid string', () => {
+    expect(() => service.add('1,-2-3')).toThrowError('String is not valid');
+  });
+
 });

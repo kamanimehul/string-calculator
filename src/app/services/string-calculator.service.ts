@@ -18,11 +18,18 @@ export class StringCalculatorService {
       input = parts[1];
     }
     const numbers = input.split(delimiter).map(Number);
-    
-    const negatives = numbers.filter(num => num < 0);
-    if (negatives.length > 0) {
-      throw new Error(`Negatives not allowed: ${negatives.join(',')}`);
+
+    const invalid = numbers.filter(num => isNaN(num));
+    if (invalid.length > 0) {
+      throw new Error(`String is not valid`);
+    } else {
+      const negatives = numbers.filter(num => num < 0);
+      if (negatives.length > 0) {
+        throw new Error(`Negatives not allowed: ${negatives.join(',')}`);
+      }
     }
+
+
     return numbers.reduce((sum, num) => sum + num, 0);
 
   }
