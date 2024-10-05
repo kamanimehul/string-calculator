@@ -19,4 +19,9 @@ describe('StringCalculatorService', () => {
     expect(result).toBe(3);
   });
 
+  it('should return the sum of an unknown amount of numbers', () => {
+    const result = service.add('1,2,3,4');
+    expect(result).toBe(10);
+  });
+
 });
