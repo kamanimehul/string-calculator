@@ -24,4 +24,8 @@ describe('StringCalculatorService', () => {
     expect(result).toBe(10);
   });
 
+  it('should handle newlines as delimiters', () => {
+    const result = service.add('1\n2,3');
+    expect(result).toBe(6);
+  });
 });
