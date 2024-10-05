@@ -33,10 +33,18 @@ describe('StringCalculatorService', () => {
     const result = service.add('//;\n1;2');
     expect(result).toBe(3);
   });
-  
+
   it('should support custom , delimiters', () => {
     const result = service.add('//,\n1,2');
     expect(result).toBe(3);
+  });
+
+  it('should throw an exception for negative numbers(single)', () => {
+    expect(() => service.add('1,-2,3')).toThrowError('Negatives not allowed: -2');
+  });
+
+  it('should throw an exception for negative numbers(multiple)', () => {
+    expect(() => service.add('1,-2,-3')).toThrowError('Negatives not allowed: -2,-3');
   });
 
 });
