@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class StringCalculatorService {
 
   constructor() { }
+
+  add(input: string): number {
+    return 0;
+  }
 }
